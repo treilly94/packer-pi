@@ -42,6 +42,7 @@
     {
       "type": "ansible-local",
       "playbook_dir": "./ansible",
+      "extra_arguments": ["--vault-password-file", ".vault_pass.txt"],
       "playbook_files": [
         "./ansible/users.yml",
         "./ansible/ssh.yml",
