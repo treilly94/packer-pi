@@ -7,7 +7,7 @@
     "file_checksum_type": "sha256",
     "file_target_extension": "zip",
     "image_build_method": "reuse",
-    "image_path": "raspberry-pi.img",
+    "image_path": "raspberrypi-{{isotime \"2006-01-02\"}}.img",
     "image_size": "2G",
     "image_type": "dos",
     "image_partitions": [
@@ -41,9 +41,11 @@
     },
     {
       "type": "ansible-local",
+      "playbook_dir": "./ansible",
       "playbook_files": [
         "./ansible/users.yml",
-        "./ansible/ssh.yml"
+        "./ansible/ssh.yml",
+        "./ansible/telegraf.yml"
       ]
     }
   ]

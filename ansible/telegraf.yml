@@ -1,0 +1,28 @@
+---
+- name: Provision telegraf
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install telegraf
+      apt:
+        deb: https://dl.influxdata.com/telegraf/releases/telegraf_1.15.2-1_armhf.deb
+    - name: Create telegraf.service.d directory
+      file:
+        path: /etc/systemd/system/telegraf.service.d
+        state: directory  
+        owner: root
+        group: root
+        mode: "0755"
+    - name: Add override file
+      copy:
+        src: files/telegraf/override.conf
+        dest: /etc/systemd/system/telegraf.service.d/override.conf
+        owner: root
+        group: root
+        mode: "0644"
+    - name: Enable telegraf
+      service:
+        name: telegraf
+        enabled: yes
+    
