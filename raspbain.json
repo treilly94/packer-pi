@@ -41,7 +41,10 @@
     },
     {
       "type": "ansible-local",
-      "playbook_file": "./ansible/users.yml"
+      "playbook_files": [
+        "./ansible/users.yml",
+        "./ansible/ssh.yml"
+      ]
     }
   ]
 }
