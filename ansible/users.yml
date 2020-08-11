@@ -3,6 +3,10 @@
   become: true
 
   tasks:
+    - name: Remove default pi user
+      user:
+        name: "pi"
+        state: absent
     - name: Add sudo users
       user:
         name: "{{ item }}"
