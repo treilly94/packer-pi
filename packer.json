@@ -44,9 +44,10 @@
       "playbook_dir": "./ansible",
       "extra_arguments": ["--vault-password-file", ".vault_pass.txt"],
       "playbook_files": [
-        "./ansible/users.yml",
         "./ansible/ssh.yml",
-        "./ansible/telegraf.yml"
+        "./ansible/docker.yml",
+        "./ansible/telegraf.yml",
+        "./ansible/users.yml"
       ]
     }
   ],

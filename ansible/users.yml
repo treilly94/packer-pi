@@ -18,7 +18,7 @@
         name: "{{ item.name }}"
         shell: /bin/bash
         state: present
-        groups: sudo
+        groups: sudo, docker
       loop: "{{ users }}"
     - name: Set ssh authorized keys from github
       authorized_key:

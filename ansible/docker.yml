@@ -1,0 +1,17 @@
+---
+- name: Provision docker
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install docker
+      apt:
+        deb: "{{ item }}"
+      loop:
+        - https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/docker-ce-cli_19.03.12~3-0~debian-buster_armhf.deb
+        - https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/containerd.io_1.2.13-2_armhf.deb
+        - https://download.docker.com/linux/debian/dists/buster/pool/stable/armhf/docker-ce_19.03.12~3-0~debian-buster_armhf.deb
+    - name: Enable docker
+      service:
+        name: docker
+        enabled: yes
