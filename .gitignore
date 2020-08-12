@@ -1,5 +1,5 @@
 packer_cache/
 packer-builder-arm
-*.img
+*.img*
 venv/
 .vault_pass.txt

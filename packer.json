@@ -7,7 +7,7 @@
     "file_checksum_type": "sha256",
     "file_target_extension": "zip",
     "image_build_method": "reuse",
-    "image_path": "raspberrypi-{{isotime \"2006-01-02\"}}.img",
+    "image_path": "raspberrypi.img",
     "image_size": "2G",
     "image_type": "dos",
     "image_partitions": [
@@ -48,6 +48,13 @@
         "./ansible/ssh.yml",
         "./ansible/telegraf.yml"
       ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "compress",
+      "format": ".gz",
+      "output": "raspberrypi-{{isotime \"2006-01-02\"}}.img.gz"
     }
   ]
 }
