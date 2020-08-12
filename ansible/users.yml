@@ -26,3 +26,14 @@
         state: present
         key: https://github.com/{{ item.github }}.keys
       loop: "{{ users }}"
+    - name: Passwordless sudo
+      copy:
+        src: files/users/sudo-nopasswd
+        dest: /etc/sudoers.d/sudo-nopasswd
+        owner: root
+        group: root
+        mode: "0440"
+    - name: Remove pi passwordless sudo
+      file:
+        path: /etc/sudoers.d/010_pi-nopasswd 
+        state: absent 
