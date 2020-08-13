@@ -25,4 +25,18 @@
       service:
         name: telegraf
         enabled: yes
-    
+
+    - name: Add temperature script
+      copy:
+        src: files/telegraf/cpu_temp.sh
+        dest: /usr/local/bin/cpu_temp.sh
+        owner: root
+        group: root
+        mode: "0755"
+    - name: Add temperature telegraf conf
+      copy:
+        src: files/telegraf/temperature.conf
+        dest: /etc/telegraf/telegraf.d/temperature.conf
+        owner: root
+        group: root
+        mode: "0644"
