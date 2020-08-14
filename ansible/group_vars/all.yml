@@ -1,0 +1,5 @@
+---
+
+users:
+  - { name: "tom", github: "treilly94" }
+  - { name: "gen", github: "gmreynolds" }

@@ -1,0 +1,14 @@
+---
+- name: Make raspbain specific changes
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Remove default pi user
+      user:
+        name: "pi"
+        state: absent
+    - name: Remove pi passwordless sudo
+      file:
+        path: /etc/sudoers.d/010_pi-nopasswd 
+        state: absent

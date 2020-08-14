@@ -3,22 +3,13 @@
   hosts: all
   become: true
 
-  vars:
-    users:
-      - { name: "tom", github: "treilly94" }
-      - { name: "gen", github: "gmreynolds" }
-
   tasks:
-    - name: Remove default pi user
-      user:
-        name: "pi"
-        state: absent
     - name: Add sudo users
       user:
         name: "{{ item.name }}"
         shell: /bin/bash
         state: present
-        groups: sudo, docker
+        groups: sudo
       loop: "{{ users }}"
     - name: Set ssh authorized keys from github
       authorized_key:
@@ -33,7 +24,3 @@
         owner: root
         group: root
         mode: "0440"
-    - name: Remove pi passwordless sudo
-      file:
-        path: /etc/sudoers.d/010_pi-nopasswd 
-        state: absent 

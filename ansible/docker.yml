@@ -15,3 +15,9 @@
       service:
         name: docker
         enabled: yes
+    - name: Add users to docker group
+      user:
+        name: "{{ item.name }}"
+        groups: docker
+        append: yes
+      loop: "{{ users }}"
