@@ -6,7 +6,7 @@
   tasks:
     - name: Remove default pi user
       user:
-        name: "pi"
+        name: pi
         state: absent
     - name: Remove pi passwordless sudo
       file:
