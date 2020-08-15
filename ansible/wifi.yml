@@ -1,0 +1,14 @@
+---
+- name: Configure wifi
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Add wifi creadentials
+      blockinfile:
+        path: /etc/wpa_supplicant/wpa_supplicant.conf
+        block: |
+          network={
+            ssid="{{ wifi_ssid }}"
+            psk={{ wifi_psk }}
+          }
