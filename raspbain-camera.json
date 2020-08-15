@@ -48,7 +48,8 @@
         "./ansible/users.yml",
         "./ansible/ssh.yml",
         "./ansible/telegraf.yml",
-        "./ansible/wifi.yml"
+        "./ansible/wifi.yml",
+        "./ansible/camera.yml"
       ]
     }
   ],
