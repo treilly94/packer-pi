@@ -56,7 +56,7 @@
     {
       "type": "compress",
       "format": ".gz",
-      "output": "raspberrypi-{{isotime \"2006-01-02\"}}.img.gz"
+      "output": "pi-{{isotime \"2006-01-02\"}}.img.gz"
     }
   ]
 }

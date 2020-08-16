@@ -57,7 +57,7 @@
     {
       "type": "compress",
       "format": ".gz",
-      "output": "raspberrypi-camera-{{isotime \"2006-01-02\"}}.img.gz"
+      "output": "pi-camera-{{isotime \"2006-01-02\"}}.img.gz"
     }
   ]
 }

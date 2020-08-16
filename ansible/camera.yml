@@ -16,3 +16,28 @@
         groups: video
         append: yes
       loop: "{{ users }}"
+
+    - name: Install dependencies
+      apt:
+        name: ffmpeg
+        state: present
+    - name: Add streaming config
+      copy:
+        src: files/camera/streaming.config
+        dest: /root/streaming.config
+        owner: root
+        group: root
+        mode: "0700"
+    - name: Add camera script
+      copy:
+        src: files/camera/camera.sh
+        dest: /usr/local/bin/camera.sh
+        owner: root
+        group: root
+        mode: "0755"
+    - name: Stream on boot
+      cron:
+        name: stream
+        special_time: reboot
+        job: /usr/local/bin/camera.sh
+        user: root
