@@ -1,0 +1,19 @@
+---
+- name: Provision k3s
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Enable legacy iptables
+      alternatives:
+        name: iptables
+        path: /usr/sbin/iptables-legacy
+    - name: Enable legacy ip6tables
+      alternatives:
+        name: ip6tables
+        path: /usr/sbin/ip6tables-legacy
+    - name: Download k3s
+      get_url:
+        url: https://github.com/rancher/k3s/releases/download/v1.18.8%2Bk3s1/k3s-armhf
+        dest: /usr/local/bin/k3s
+        mode: "0755"
